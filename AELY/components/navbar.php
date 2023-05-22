@@ -10,18 +10,25 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                        <h5 class="brand-name">AELY</h5>
+                        <a href="../AELY">
+                            <img class="logo" src="img/logo-branco.png" alt="logo" srcset="">
+                        </a>
                     </div>
-                    <div class="col-md-5 my-auto">
+
+                    <div class="col-lg-5 col-md-12 col-12 my-auto">
                         <form role="search" method="POST" action="busca.php">
-                            <div class="input-group">
+                            <div class="input-group float-center">
+                            <div class="form-outline">
                                 <input type="search" name="busca" placeholder="Pesquise o Produto" class="form-control" style="margin-right:auto"/>
+                            </div>
                                 <button class="btn bg-white" style="position:absolute;margin-left:auto" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </form>
                     </div>
+
+
                     <div class="col-md-5 my-auto">
                         <ul class="nav justify-content-end">
                             
@@ -79,9 +86,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Início</a>
-                        </li>
+                        
                         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                             <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -114,5 +119,8 @@
         .nav-link:hover{
             color: #000;
             text-decoration:none;
+        }
+        img.logo{
+            width:180px;
         }
     </style>
