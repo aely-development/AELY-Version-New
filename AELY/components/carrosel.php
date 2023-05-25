@@ -1,4 +1,12 @@
+<?php
 
+    require_once 'config/config.php';
+    
+    $sth = $pdo->prepare("SELECT * FROM `jogo` WHERE status_jogo = true LIMIT 0,3");
+    $sth->execute();                     
+    $consulta = $sth->fetchAll(PDO::FETCH_ASSOC);    
+    $item=0;           
+?>
     
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -10,17 +18,23 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div class="item active">
-        <img src="https://pbs.twimg.com/media/DmdCa-BX0AEcuU6.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
 
-      <div class="item">
-        <img src="https://pbs.twimg.com/media/DmdCa-BX0AEcuU6.jpg" alt="Chicago" style="width:100%;">
+    <?php foreach($consulta as $linha){ ?>
+      <?php if($item==0){?>
+        <div class="item active">
+      <a href="descJogo.php?id=<?php echo $linha['cd_jogo'];?>">
+      <img src="https://pbs.twimg.com/media/DmdCa-BX0AEcuU6.jpg" alt="<?php echo $linha['cd_jogo'];?>" style="width: 100%;">
+      </a>
       </div>
+      <?php }else{?>
+        <div class="item">
+      <a href="descJogo.php?id=<?php echo $linha['cd_jogo'];?>">
+      <img src="https://pbs.twimg.com/media/DmdCa-BX0AEcuU6.jpg" alt="<?php echo $linha['cd_jogo'];?>" style="width: 100%;">
+      </a>
+      </div>
+      <?php }$item++?>
+      <?php }?>
     
-      <div class="item">
-        <img src="https://pbs.twimg.com/media/DmdCa-BX0AEcuU6.jpg" alt="New york" style="width:100%;">
-      </div>
     </div>
 
     <!-- Left and right controls -->
