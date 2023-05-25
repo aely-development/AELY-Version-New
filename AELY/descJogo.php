@@ -57,6 +57,10 @@
 			background-color: #583c87;
 			color: white;
 		}
+    .btncolor{
+      background-color: #583c87;
+			color: white;
+    }
 
 		.input-group{
             display: inline;
@@ -111,8 +115,8 @@
             </div>
             <!-- col.// -->
           </div>
-          <a href="functions/addCarrinho.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Carrinho </a>
-          <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Lista de Favoritos</a>
+          <a href="functions/addCarrinho.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btncolor shadow-0"> <i class="me-1 fa fa-shopping-cart"></i> Carrinho </a>
+          <a href="functions/addLista.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-h eart fa-lg"></i> Lista de Desejos</a>
         </div>
       </main>
     </div>
