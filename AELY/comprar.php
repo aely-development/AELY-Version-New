@@ -1,7 +1,9 @@
 <?php
 
     require_once 'config/config.php';
-    
+    if(empty($_SESSION['carrinho'])||($_SESSION['vl_total']==0)){
+        header("Location: carrinho.php");
+      }
     $carrinho = array_filter($_SESSION['carrinho']);
     $vl_total = $_SESSION['vl_total'];
     $usuario = $_SESSION['cduser'];
@@ -14,14 +16,6 @@
             
     $sql->execute();
     
-    if($sql->rowCount()){
-        
-
-    }else{
-        echo "<p style='color: red;'>O carrinho está vazio!</p>";
-    }
-    
-
 ?>
 
 <!doctype html>
