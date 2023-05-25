@@ -1,7 +1,14 @@
 <?php
 
     require_once 'config/config.php';
-
+    
+    if(session_status() == PHP_SESSION_ACTIVE){
+        if($_SESSION['adm']==0){
+        header("Location: index.php");
+        }
+    }else{
+        header("Location: index.php");
+    }
 ?>
 
 <!DOCTYPE html>
