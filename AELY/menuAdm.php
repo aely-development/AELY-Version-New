@@ -125,6 +125,9 @@
                                 <a href="functions/desativar.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btn-block mb-4 cad">
                                     <i class="fa fa-ban" style="color: #583c87;"></i>
                                 </a>
+                                <a href="functions/delete.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btn-block mb-4 cad">
+                                    <i class="fa fa-trash" style="color: #583c87;"></i>    
+                                    </a>
                             </div>
                             
                         </div>

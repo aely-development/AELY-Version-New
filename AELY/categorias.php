@@ -124,7 +124,7 @@
 
                     <?php foreach($consulta as $linha){$item++?>
 
-                        <div class="card" style="width: 270px; height: 40vh; margin: 5px">
+                        <div class="card" style="width: 270px; height: auto; margin: 5px">
                             <img src=" <?php echo $linha['img_jogo'];?>" class="card-title" style="margin-top: 5px" alt="Imagem do jogo">
                             <div class="card-body">
                                 <h3 class="card-title"><?php echo $linha['nm_jogo']; ?></h3>

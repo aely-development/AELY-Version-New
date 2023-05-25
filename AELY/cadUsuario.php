@@ -142,8 +142,8 @@
 					$sql->bindParam('senha', $senha);
 					$sql->bindParam('adm', $adm);
 					$sql->execute();
+					echo "<p style='color:green'>email cadastrado!</p>";
 				}
-				header("Location: ../login.php");
 			}
 		}	
 	}?>	

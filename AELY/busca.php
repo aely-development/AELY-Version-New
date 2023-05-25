@@ -91,7 +91,7 @@
                     if(!empty($busca)){
                     #conexao do banco
                     $sth = $pdo->prepare("SELECT * FROM `jogo`
-                    WHERE nm_jogo LIKE '$busca%' AND status_jogo = true LIMIT $inicio,$row_item");
+                    WHERE nm_jogo LIKE '%$busca%' AND status_jogo = true LIMIT $inicio,$row_item");
                     $sth->execute();                     
                     $consulta = $sth->fetchAll(PDO::FETCH_ASSOC);
 

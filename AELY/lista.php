@@ -105,7 +105,7 @@
 
                     <?php foreach($consulta as $linha){$item++; ?>
 
-                        <div class="card" style="width: 16rem; margin: 5px;">
+                        <div class="card" style="width: 16rem;height: auto; margin: 5px;">
                             <img src=" <?php echo $linha['img_jogo'];?>" class="card-img-top w-55" alt="Imagem do jogo">
                             <div class="card-body">
                                 <h3>Codigo: <?php echo $linha['cd_jogo']; ?></h3>
@@ -121,6 +121,9 @@
                                     <i class="fa fa-check" style="color: #583c87;"></i>    
                                     </a>
                                 <?php } ?>
+                                    <a href="functions/delete.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btn-block mb-4 cad">
+                                    <i class="fa fa-trash" style="color: #583c87;"></i>    
+                                    </a>
                             </div>                            
                         </div>
 

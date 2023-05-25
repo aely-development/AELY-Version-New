@@ -9,7 +9,9 @@
         $consulta = $sth->fetchAll(PDO::FETCH_ASSOC);
     
         $vl_total=0;
-        $carrinho = $_SESSION['carrinho'];
+        if(!empty($_SESSION['carrinho'])){
+          $carrinho = $_SESSION['carrinho'];
+        }
 
         if(session_status() == PHP_SESSION_ACTIVE && (!empty($_SESSION['emailUser']))){
 

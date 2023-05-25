@@ -106,17 +106,20 @@
                 <label class="form-label">Valor</label>
                 <input type="decimal" name="valor" class="form-control" placeholder="Digite o valor do jogo" value="<?php echo $linha['vl_jogo'];?>" required>
             </div>
+            <img src="<?php echo $linha['img_jogo'];?>" style="margin-top: 5px"></img>
             <div class="mb-3">
                 
                 <label class="form-label">Alterar imagem</label>
-                <input type="file" name="img" class="form-control" placeholder="Envie a imagem do jogo" value="<?php echo $linha['img_jogo'];?>">
+                <input type="file" name="img" class="form-control" placeholder="Envie a imagem do jogo">
                 
             </div>
             <div class="col-auto">
                 <input type="submit" value="Atualizar" class="btn btn-block mb-4 main">
                 <?php
 
-                    if(!isset($_POST['codigo']) && !isset($_POST['nome']) && !isset($_POST['genero']) && !isset($_POST['ds']) && !isset($_POST['dtlanc']) && !isset($_POST['marca']) && !isset($_POST['valor'])){
+                    if(!isset($_POST['codigo']) && !isset($_POST['nome']) && !isset($_POST['genero']) 
+                    && !isset($_POST['ds']) && !isset($_POST['dtlanc'])  && !isset($_POST['marca']) && 
+                    !isset($_FILES['img']) && !isset($_POST['valor'])){
                         
                     }else{
                         
@@ -143,23 +146,19 @@
                         if($extensao != "jpg" && $extensao != 'png')
                             die("Escolha uma imagem .jpg ou .png");
 
-                        $sucesso = move_uploaded_file($img["tmp_name"], $pasta . $novonomeImg . "." . $extensao);
+                            $sucesso = move_uploaded_file($img["tmp_name"], $pasta . $novonomeImg . "." . $extensao);
 
                         global $pdo;
  
                             $sql = "UPDATE jogo 
-                            SET nm_jogo=:nome, nm_genero = :genero, ds_jogo = :ds, dt_lancamento = :dtlanc, nm_desenvolvedora=:marca, img_jogo=:img, vl_jogo=:valor  
+                            SET nm_jogo=:nome, nm_desenvolvedora=:marca, img_jogo=:img, vl_jogo=:valor  
                             WHERE cd_jogo = :codigo";
                             $sql = $pdo->prepare($sql);
                             $sql->bindParam('nome', $nome);
-                            $sql->bindParam('genero', $genero);
-                            $sql->bindParam('ds', $ds);
-                            $sql->bindParam('dtlanc', $dtlanc);
                             $sql->bindParam('marca', $marca);
                             $sql->bindParam('img', $path);
                             $sql->bindParam('valor', $valor);
-                            $sql->bindParam('codigo', $id);
-
+                            $sql->bindParam(':codigo', $id);
                             $sql->execute();
 
                             if($sql->rowCount()){

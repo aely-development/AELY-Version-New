@@ -3,10 +3,10 @@
     require_once 'config/config.php';
 
 ?>
-
+<div class="container">
 <form enctype="multipart/form-data" action="" method="POST">
         <div class="insert">
-            <div class="container-fluid col-sm-10">
+            <div class="container-fluid">
             <div class="infos">
                     <table class="table">
 
@@ -37,14 +37,14 @@
 # Verificação e exibição do resultado da consulta
                     if(count($consulta)){ ?>
 
-                    <div class="row" style="width: 1400px;margin-left: -7%;">
+                    <div class="row" >
 
                     <?php foreach($consulta as $linha){$item++; ?>
 
-                        <div class="card" style="width: 270px; height: 40vh; margin: 5px">
+                        <div class="card" style="width: 238px; margin: 10px;" >
                             <img src=" <?php echo $linha['img_jogo'];?>" class="card-title" style="margin-top: 5px" alt="Imagem do jogo">
                             <div class="card-body">
-                                <h3 class="card-title"><?php echo $linha['nm_jogo']; ?></h3>
+                                <h3 class="card-title" style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;"><?php echo $linha['nm_jogo']; ?></h3>
                                 <h3>R$ <?php echo str_replace('.', ',', $linha['vl_jogo']); ?></h3>
                                 <a href="descJogo.php?id=<?php echo $linha['cd_jogo'];?>" class="btn btn-block mb-4 main">Ver mais</a>
                             </div>                            
@@ -53,7 +53,7 @@
                         <?php if($item%4==0){ ?>
 
                         </div>
-                        <div class="row" style="width: 1400px;margin-left: -7%;">              
+                        <div class="row">              
                         <?php }?>
                     <?php } ?>
                     </div>
@@ -94,3 +94,4 @@
             </div>
         </div>
     </form>
+</div>
