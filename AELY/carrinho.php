@@ -154,6 +154,7 @@
           <div class="card-body">
             <input type="hidden" name="carrinho" value="<?php print_r($carrinho); ?>">
             <button type="submit" class="btn btn-block mb-4 main">Comprar</button>
+            
           </div>
         </div>
       </div>
