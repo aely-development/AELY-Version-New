@@ -4,17 +4,20 @@
 
     // CONEXÃO COM O BANCO DE DADOS
     require_once 'config/config.php';
+        $vl_total=0;
         $sth = $pdo->prepare("SELECT * FROM `jogo`");
         $sth->execute();
         $consulta = $sth->fetchAll(PDO::FETCH_ASSOC);
-    
-        $vl_total=0;
-        if(!empty($_SESSION['carrinho'])){
-          $carrinho = $_SESSION['carrinho'];
-        }
+
+
+        if(!empty($_SESSION['carrinho'])){}
 
         if(session_status() == PHP_SESSION_ACTIVE && (!empty($_SESSION['emailUser']))){
-
+          $usuario=$_SESSION['cduser'];
+          $sth2 = $pdo->prepare("SELECT cd_jogo FROM `carrinho` where cd_usuario=$usuario");
+          $sth2->execute();
+          $con = $sth2->fetchAll(PDO::FETCH_ASSOC);    
+          $_SESSION['carrinho']=$con;
         }else{
           header("Location:login.php");
         }
@@ -102,7 +105,7 @@
  <?php if(isset($_SESSION['carrinho'])){
         foreach($consulta as $linha){ 
         foreach($_SESSION['carrinho'] as $car){
-              if($linha['cd_jogo']==$car){
+              if($linha['cd_jogo']==$car['cd_jogo']){
                 $vl_total += $linha['vl_jogo'];?>
 
                 <div class="card rounded-3 mb-4">
@@ -152,8 +155,8 @@
 
         <div class="card">
           <div class="card-body">
-            <input type="hidden" name="carrinho" value="<?php print_r($carrinho); ?>">
             <button type="submit" class="btn btn-block mb-4 main">Comprar</button>
+            
           </div>
         </div>
       </div>

@@ -1,15 +1,12 @@
 <?php
     require_once '../config/config.php';
 if(session_status() == PHP_SESSION_ACTIVE){
-    $existe=false;
     if(!isset($_SESSION['carrinho'])){
         }else{
-        $item=0;
-        foreach($_SESSION['carrinho'] as $var){
-        if($var==$_GET['id']){
-        $_SESSION['carrinho'][$item]=null;
-        }
-        $item++;}
+        $sql = "DELETE FROM carrinho where cd_jogo LIKE :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $_GET['id']);
+        $stmt->execute();
         }
         header("Location: ../carrinho.php");
     

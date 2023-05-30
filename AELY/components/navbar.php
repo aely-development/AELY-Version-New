@@ -41,6 +41,11 @@
                             </li>
                             <?php }else{?>
                                 <li class="nav-item">
+                                <a class="nav-link" href="lista-pedido.php">
+                                    <i class="fa fa-heart"></i> Historico
+                                </a>
+                            </li>
+                                <li class="nav-item">
                                 <a class="nav-link" href="carrinho.php">
                                     <i class="fa fa-shopping-cart"></i> Carrinho
                                 </a>
@@ -57,7 +62,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="listaDesejo.php">
                                     <i class="fa fa-heart"></i> Lista de Desejos
                                 </a>
                             </li>    

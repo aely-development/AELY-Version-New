@@ -11,11 +11,14 @@
     
         $vl_total=0;
         if(!empty($_SESSION['listaDesejo'])){
-          $carrinho = $_SESSION['listaDesejo'];
         }
 
         if(session_status() == PHP_SESSION_ACTIVE && (!empty($_SESSION['emailUser']))){
-
+          $usuario=$_SESSION['cduser'];
+          $sth2 = $pdo->prepare("SELECT cd_jogo FROM `listadesejo` where cd_usuario=$usuario");
+          $sth2->execute();
+          $con = $sth2->fetchAll(PDO::FETCH_ASSOC);    
+          $_SESSION['listaDesejo']=$con;
         }else{
           header("Location:login.php");
         }
@@ -103,7 +106,7 @@
  <?php if(isset($_SESSION['listaDesejo'])){
         foreach($consulta as $linha){ 
         foreach($_SESSION['listaDesejo'] as $listaDesejo){
-              if($linha['cd_jogo']==$listaDesejo){
+              if($linha['cd_jogo']==$listaDesejo['cd_jogo']){
                 $vl_total += $linha['vl_jogo'];?>
 
                 <div class="card rounded-3 mb-4">
