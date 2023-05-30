@@ -16,6 +16,7 @@
                 header("Location: ../menuAdm.php");
                 }
                 else{
+                    $usuario=$_SESSION['cduser'];
                     header("Location: ../index.php");
                 }
             }else{

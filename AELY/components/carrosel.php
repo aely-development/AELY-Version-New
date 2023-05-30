@@ -23,7 +23,7 @@
       <?php if($item==0){?>
         <div class="item active">
       <a href="descJogo.php?id=<?php echo $linha['cd_jogo'];?>">
-      <img src="https://pbs.twimg.com/media/DmdCa-BX0AEcuU6.jpg" alt="<?php echo $linha['cd_jogo'];?>" style="width: 100%;">
+      <img src="<?php echo $linha['img_jogo'];?>" alt="<?php echo $linha['cd_jogo'];?>" style="width: 100%;">
       </a>
       </div>
       <?php }else{?>

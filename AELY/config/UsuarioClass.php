@@ -20,6 +20,7 @@
                     $_SESSION['cduser'] = $dado['cd_usuario'];
                     $_SESSION['adm']=$dado['usuario_adm'];
                     $_SESSION['user']=true;
+
                     return true;
                     
                 }

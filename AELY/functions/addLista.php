@@ -11,7 +11,12 @@ if(session_status() == PHP_SESSION_ACTIVE){
         }
         }
         if(!$existe){
-        $_SESSION['listaDesejo'][]=$_GET['id'];
+            $sql = "INSERT INTO listadesejo (cd_jogo, cd_usuario) 
+            VALUES (:codjogo,:cd_usuario)";
+            $sql = $pdo->prepare($sql);
+            $sql->bindParam('codjogo', $_GET['id']);
+            $sql->bindParam('cd_usuario', $_SESSION['cduser']);
+            $sql->execute();
         }
         }
         header("Location: ../listaDesejo.php");
