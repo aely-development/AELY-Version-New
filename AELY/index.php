@@ -79,6 +79,11 @@
         include 'components/card-produto.php';
     ?>
 </div>
+<footer>
+    <?php
+        include 'components/footer.php';
+    ?>
+</footer>
     
 </body>
 </html>

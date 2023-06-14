@@ -87,6 +87,10 @@
         include 'components/lista-pedido.php';
     ?>
 </div>
+    <?php
+        include 'components/footer.php';
+    ?>
+
     
 </body>
 </html>

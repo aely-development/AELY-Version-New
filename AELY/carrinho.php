@@ -161,6 +161,10 @@
   </div>
 </section>
 </form>
+<?PHP
+        include 'components/footer.php';
+
+?>
 
 </body>
 </html>
