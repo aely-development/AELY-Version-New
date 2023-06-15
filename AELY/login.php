@@ -30,7 +30,7 @@
             margin-top: 150px;
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-end;
         }
 
         #cad-button{
@@ -112,11 +112,14 @@
 				</div>
 			</div>
 	</form>
-
+	
 	</div>
+	<div>
 	<?php
 	        include 'components/footer.php';
 	?>
+	</div>
+	
 </body>
 
 </html>
